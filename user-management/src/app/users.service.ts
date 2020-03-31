@@ -5,7 +5,7 @@ import { User } from './user.model';
     providedIn:'root'
 })
 export class UsersService{
-    usersList: User[]=[];
+    private usersList: User[]=[];
     constructor(){
         this.usersList.push(new User("1","One","User",12,"yes","",true));
         this.usersList.push(new User("2","Two","User",23,"yes","",true));
@@ -14,6 +14,12 @@ export class UsersService{
         this.usersList.push(new User("5","Five","User",54,"yes","",false));
         this.usersList.push(new User("6","Six","User",27,"yes","",true));
     }
+
+    getAllUsers(){
+        return this.usersList;
+    }
+
+    
     getUser(id:string){
         return this.usersList.find(user=>user.id===id); 
     }

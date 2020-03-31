@@ -8,13 +8,13 @@ import { User } from 'src/app/user.model';
 })
 export class UserslistComponent implements OnInit,OnChanges, DoCheck {
   @Input() module: string;
-  temp: User[];
+  userList: User[];
   constructor(private users: UsersService) {
   
   }
 
   ngOnInit(){
- 
+    this.userList=this.users.getAllUsers();
   }
 
   ngOnChanges(){
@@ -23,11 +23,9 @@ export class UserslistComponent implements OnInit,OnChanges, DoCheck {
 
   ngDoCheck(){
     if (this.module === 'active') {
-      this.temp=this.users.usersList.filter(user=>!user.isDeleted);
+      this.userList=this.userList.filter(user=>!user.isDeleted);
     }else if( this.module === 'deleted'){
-      this.temp=this.users.usersList.filter(user=>user.isDeleted);
-    } else {
-      this.temp = this.users.usersList;
-    }
+      this.userList=this.userList.filter(user=>user.isDeleted);
+    } 
   }
 }
