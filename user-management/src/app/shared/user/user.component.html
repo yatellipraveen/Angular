@@ -7,24 +7,27 @@
 >
   <div class="card-body ">
     <p>{{ user.firstName }} {{ user.lastName }}</p>
-    <div *ngIf="module === 'manage'" class="row justify-content-end">
-      <button class="btn btn-primary" [routerLink]="['details', user.id]">
-        Details
-      </button>
-    </div>
-    <div
-      *ngIf="module === 'deleted'"
-      class="row justify-content-end"
-      (click)="onActivate()"
-    >
-      <button class="btn btn-success">Activate</button>
-    </div>
-    <div
-      *ngIf="module === 'active'"
-      class="row justify-content-end"
-      (click)="onDeactivate()"
-    >
-      <button class="btn btn-danger">Deactivate</button>
+    <div class="container">
+      <div *ngIf="module === 'manage'" class="row justify-content-between">
+        <button class="btn btn-warning" [routerLink]="['edit', user.id]">Edit</button>
+        <button class="btn btn-primary" [routerLink]="['details', user.id]">
+          Details
+        </button>
+      </div>
+      <div
+        *ngIf="module === 'deleted'"
+        class="row justify-content-end"
+        (click)="onActivate()"
+      >
+        <button class="btn btn-success">Activate</button>
+      </div>
+      <div
+        *ngIf="module === 'active'"
+        class="row justify-content-end"
+        (click)="onDeactivate()"
+      >
+        <button class="btn btn-danger">Deactivate</button>
+      </div>
     </div>
   </div>
 </div>

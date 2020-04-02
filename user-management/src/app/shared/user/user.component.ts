@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { User } from 'src/app/user.model';
-import { ActivatedRoute } from '@angular/router';
-import { UsersService } from 'src/app/users.service';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-user',
@@ -11,12 +10,12 @@ export class UserComponent {
   @Input() user: User;
   @Input() module: string;
 
-  constructor(private route: ActivatedRoute, private users: UsersService) {}
+  constructor(private http : HttpService) {}
 
   onActivate() {
-    this.users.activateUser(this.user.id);
+    this.http.activateUser(this.user);
   }
   onDeactivate() {
-    this.users.deactivateUser(this.user.id);
+    this.http.deactivateUser(this.user);
   }
 }
