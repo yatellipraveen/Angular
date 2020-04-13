@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
+import{ globalConstants} from '../../constants'
 
 @Component({
   selector: 'app-edituser',
@@ -10,6 +11,8 @@ import { HttpService } from 'src/app/http.service';
   styleUrls:['./edit-user.component.css']
 })
 export class EditUserComponent {
+  globalConst;
+
   user:User;
   updateForm= new FormGroup({
     password:new FormControl('',[Validators.required, Validators.minLength(7)]),
@@ -20,6 +23,8 @@ export class EditUserComponent {
 
   }
   ngOnInit() {
+    this.globalConst=globalConstants;
+
     let id = this.route.snapshot.params['id'];
     this.http.getUserByID(id).subscribe(user => {
       this.user = user as any;

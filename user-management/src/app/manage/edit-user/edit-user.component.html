@@ -1,7 +1,7 @@
 <h5>{{ user?.firstName | titlecase }} {{ user?.lastName | titlecase }}</h5>
 <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">{{globalConst.PASSWORD}}</label>
     <input
       type="password"
       class="form-control"
@@ -15,7 +15,7 @@
       "
       class="text-danger"
     >
-      enter password
+      {{globalConst.PASSWORD_ERROR}}
     </span>
     <span
       *ngIf="
@@ -24,11 +24,11 @@
       "
       class="text-danger"
     >
-      password should be of minimum length 7
+      {{globalConst.PASSWORD_LENGTH_ERROR}}
     </span>
   </div>
   <div class="form-group">
-    <label for="age">Age</label>
+    <label for="age">{{globalConst.AGE}}</label>
     <input type="text" class="form-control" id="age" formControlName="age" />
     <span
       *ngIf="
@@ -37,7 +37,7 @@
       "
       class="text-danger"
     >
-      enter age
+      {{globalConst.AGE_ERROR}}
     </span>
 
     <span
@@ -47,10 +47,10 @@
       "
       class="text-danger"
     >
-      age cannot be more than 100
+     {{globalConst.INVALID_AGE_ERROR}}
     </span>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!updateForm?.valid">
-    Update
+    {{globalConst.UPDATE_BUTTON_LABEL}}
   </button>
 </form>
