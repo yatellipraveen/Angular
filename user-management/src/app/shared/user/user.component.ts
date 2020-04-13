@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/user.model';
 import { HttpService } from 'src/app/http.service';
-
-import { constants } from '../../constants'
+import { globalConstants } from '../../constants'
 
 @Component({
   selector: 'app-user',
@@ -12,12 +11,12 @@ export class UserComponent implements OnInit{
   @Input() user: User;
   @Input() module: string;
 
-  const;
+  globalConst;
 
   constructor(private http : HttpService) {}
 
   ngOnInit(){
-    this.const=constants;
+    this.globalConst=globalConstants;
 
   }
   onActivate() {

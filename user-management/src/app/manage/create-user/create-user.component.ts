@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { HttpService } from 'src/app/http.service';
-import { constants } from '../../constants';
+import { globalConstants } from '../../constants';
 
 @Component({
   selector: 'app-create-user',
@@ -10,7 +10,7 @@ import { constants } from '../../constants';
   styleUrls: ['./create-user.component.css'],
 })
 export class CreateUserComponent implements OnInit {
-  const;
+  globalConst;
 
   userForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -30,7 +30,7 @@ export class CreateUserComponent implements OnInit {
   constructor(private http: HttpService) {}
 
   ngOnInit() {
-    this.const = constants;
+    this.globalConst = globalConstants;
   }
   onSubmit() {
     this.http.createNewUser(this.userForm.value);

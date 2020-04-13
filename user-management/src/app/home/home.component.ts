@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { constants } from '../constants';
+import { globalConstants } from '../constants';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  const;
+  globalConst;
   ngOnInit() {
-    this.const = constants;
+    this.globalConst = globalConstants;
   }
 }

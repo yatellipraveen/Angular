@@ -14,31 +14,31 @@
     </p>
     <div class="container">
       <div class="row ">
-        <p class="w-50">{{const.login}}</p>
+        <p class="w-50">{{globalConst.LOGIN}}</p>
         <p>{{ user?.login }}</p>
       </div>
     </div>
     <div class="container">
       <div class="row ">
-        <p class="w-50">{{const.firstName}}</p>
+        <p class="w-50">{{globalConst.FIRST_NAME}}</p>
         <p>{{ user?.firstName | titlecase }}</p>
       </div>
     </div>
     <div class="container">
       <div class="row ">
-        <p class="w-50">{{const.lastName}}</p>
+        <p class="w-50">{{globalConst.LAST_NAME}}</p>
         <p>{{ user?.lastName | titlecase }}</p>
       </div>
     </div>
     <div class="container">
       <div class="row ">
-        <p class="w-50">{{const.age}}</p>
+        <p class="w-50">{{globalConst.AGE}}</p>
         <p>{{ user?.age }}</p>
       </div>
     </div>
     <div class="container">
       <div class="row font-italic ">
-        <p class="w-50">{{const.lastUpdated}}</p>
+        <p class="w-50">{{globalConst.LAST_UPDATED}}</p>
         <p>{{ user?.updatedAt | date: "MMMM d, y" }}</p>
       </div>
     </div>

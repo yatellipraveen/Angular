@@ -1,19 +1,18 @@
 <div class="conatiner">
     <div class="nav justify-content-end">
         <div class="nav-item">
-            <a class="nav-link" routerLink="" routerLinkActive="font-weight-bold" [routerLinkActiveOptions]="{ exact: true }">{{const.navItemHome}}</a>
+            <a class="nav-link" routerLink="" routerLinkActive="font-weight-bold" [routerLinkActiveOptions]="{ exact: true }">{{globalConst.NAV_ITEM_HOME}}</a>
         </div>
         <div class="nav-item">
-            <a class="nav-link" routerLink="/active" routerLinkActive="font-weight-bold">{{const.navItemActive}}</a>
+            <a class="nav-link" routerLink="/active" routerLinkActive="font-weight-bold">{{globalConst.NAV_ITEM_ACTIVE}}</a>
         </div>
         <div class="nav-item">
-            <a class="nav-link" routerLink="/deleted" routerLinkActive="font-weight-bold">{{const.navItemDeleted}}</a>
+            <a class="nav-link" routerLink="/deleted" routerLinkActive="font-weight-bold">{{globalConst.NAV_ITEM_DELETED}}</a>
         </div>
         <div class="nav-item">
-            <a class="nav-link" routerLink="/manage" routerLinkActive="font-weight-bold">{{const.navItemManage}}</a>
+            <a class="nav-link" routerLink="/manage" routerLinkActive="font-weight-bold">{{globalConst.NAV_ITEM_MANAGE}}</a>
         </div>   
     </div>
     <hr>
     <router-outlet></router-outlet>
 </div>
-
