@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="container">
+    <div class="row justify-content-end mb-3">
+      <button class="btn btn-success" routerLink="createuser">{{globalConst.CREATE_BUTTON_LABEL}}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-userslist [module]="'manage'"></app-userslist>
+    </div>
+    <div class="col-md-6">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

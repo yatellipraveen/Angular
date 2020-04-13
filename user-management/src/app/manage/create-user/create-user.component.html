@@ -1,0 +1,109 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstname">{{globalConst.FIRST_NAME}}</label>
+    <input
+      type="text"
+      id="firstname"
+      class="form-control"
+      formControlName="firstName"
+    />
+    <span
+      *ngIf="
+        userForm?.get('firstName')?.errors?.required &&
+        userForm?.get('firstName').touched
+      "
+      class="text-danger"
+    >
+     {{globalConst.FIRST_NAME}}
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="lastname">{{globalConst.LAST_NAME}}</label>
+    <input
+      type="text"
+      id="lastname"
+      class="form-control"
+      formControlName="lastName"
+    />
+    <span
+    *ngIf="
+      userForm?.get('lastName')?.errors?.required &&
+      userForm?.get('lastName').touched
+    "
+    class="text-danger"
+  >
+    {{globalConst.LAST_NAME_ERROR}}
+  </span>
+  </div>
+  <div class="form-group">
+    <label for="login">{{globalConst.LOGIN}}</label>
+    <input
+      type="text"
+      id="login"
+      class="form-control"
+      formControlName="login"
+    />
+    <span
+    *ngIf="
+      userForm?.get('login')?.errors?.required &&
+      userForm?.get('login').touched
+    "
+    class="text-danger"
+  >
+    {{globalConst.LOGIN_ERROR}}
+  </span>
+  </div>
+  <div class="form-group">
+    <label for="password">{{globalConst.PASSWORD}}</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+    />
+    <span
+      *ngIf="
+        userForm?.get('password')?.errors?.required &&
+        userForm?.get('password').touched
+      "
+      class="text-danger"
+    >
+     {{globalConst.PASSWORD_ERROR}}
+    </span>
+    <span
+      *ngIf="
+        userForm?.get('password').errors?.minlength &&
+        userForm?.get('password').touched
+      "
+      class="text-danger"
+    >
+      {{globalConst.PASSWORD_LENGTH_ERROR}}
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="age">{{globalConst.AGE}}</label>
+    <input type="text" id="age" class="form-control" formControlName="age" />
+    <span
+    *ngIf="
+      userForm?.get('age')?.errors?.required &&
+      userForm?.get('age').touched
+    "
+    class="text-danger"
+  >
+    {{globalConst.AGE_ERROR}}
+  </span>
+
+  <span
+    *ngIf="
+      userForm?.get('age').errors?.maxlength &&
+      userForm?.get('age').touched
+    "
+    class="text-danger"
+  >
+    {{globalConst.INVALID_AGE_ERROR}}
+  </span>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+    {{globalConst.SUBMIT_BUTTON_LABEL}}
+  </button>
+</form>

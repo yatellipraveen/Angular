@@ -1,0 +1,56 @@
+<h5>{{ user?.firstName | titlecase }} {{ user?.lastName | titlecase }}</h5>
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="password">{{globalConst.PASSWORD}}</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+    <span
+      *ngIf="
+        updateForm?.get('password')?.errors?.required &&
+        updateForm?.get('password').touched
+      "
+      class="text-danger"
+    >
+      {{globalConst.PASSWORD_ERROR}}
+    </span>
+    <span
+      *ngIf="
+        updateForm?.get('password').errors?.minlength &&
+        updateForm?.get('password').touched
+      "
+      class="text-danger"
+    >
+      {{globalConst.PASSWORD_LENGTH_ERROR}}
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="age">{{globalConst.AGE}}</label>
+    <input type="text" class="form-control" id="age" formControlName="age" />
+    <span
+      *ngIf="
+        updateForm?.get('age')?.errors?.required &&
+        updateForm?.get('age').touched
+      "
+      class="text-danger"
+    >
+      {{globalConst.AGE_ERROR}}
+    </span>
+
+    <span
+      *ngIf="
+        updateForm?.get('age').errors?.maxlength &&
+        updateForm?.get('age').touched
+      "
+      class="text-danger"
+    >
+     {{globalConst.INVALID_AGE_ERROR}}
+    </span>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!updateForm?.valid">
+    {{globalConst.UPDATE_BUTTON_LABEL}}
+  </button>
+</form>

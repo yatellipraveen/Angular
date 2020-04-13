@@ -1,0 +1,34 @@
+<div
+  class="card border "
+  [ngClass]="{
+    'border-success': !user.isDeleted,
+    'border-danger': user.isDeleted
+  }"
+>
+  <div class="card-body ">
+    <p>{{ user.firstName }} {{ user.lastName }}</p>
+    <div class="container">
+      <div *ngIf="module === 'manage'" class="row justify-content-between">
+        <button class="btn btn-warning" [routerLink]="['edit', user.id]">{{globalConst.EDIT_BUTTON_LABEL}}</button>
+        <button class="btn btn-primary" [routerLink]="['details', user.id]">
+          {{globalConst.DETAILS_BUTTON_LABEL}}
+        </button>
+      </div>
+      <div
+        *ngIf="module === 'deleted'"
+        class="row justify-content-end"
+        (click)="onActivate()"
+      >
+        <button class="btn btn-success">{{globalConst.ACTIVATE_BUTTON_LABEL}}</button>
+      </div>
+      <div
+        *ngIf="module === 'active'"
+        class="row justify-content-end"
+        (click)="onDeactivate()"
+      >
+        <button class="btn btn-danger">{{globalConst.DEACTIVATE_BUTTON_LABEL}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
